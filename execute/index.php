@@ -1,9 +1,9 @@
 <?php
-echo "Success";
+echo '{"status": "okSuccess"}';
 $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-$txt = "John Doe\n";
+$txt = "John Doe1\n";
 fwrite($myfile, $txt);
-$txt = "Jane Doe\n";
+$txt = "Jane Doe1\n";
 fwrite($myfile, $txt);
 fclose($myfile);
 /*$ch = curl_init();

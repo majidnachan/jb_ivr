@@ -3,8 +3,8 @@ define(["postmonger"], function (Postmonger) {
 
   var connection = new Postmonger.Session();
   var payload = {};
-  var lastStepEnabled = false;
-  var steps = [
+  // var lastStepEnabled = false;
+  /*var steps = [
     // initialize to the same value as what's set in config.json for consistency
     { label: "Step 1", key: "step1" },
     { label: "Step 2", key: "step2" },
@@ -12,7 +12,7 @@ define(["postmonger"], function (Postmonger) {
     { label: "Step 4", key: "step4", active: false },
   ];
   var currentStep = steps[0].key;
-
+  */
   $(window).ready(onRender);
 
   connection.on("initActivity", initialize);
@@ -20,8 +20,8 @@ define(["postmonger"], function (Postmonger) {
   connection.on("requestedEndpoints", onGetEndpoints);
 
   connection.on("clickedNext", onClickedNext);
-  connection.on("clickedBack", onClickedBack);
-  connection.on("gotoStep", onGotoStep);
+  // connection.on("clickedBack", onClickedBack);
+  // connection.on("gotoStep", onGotoStep);
 
   function onRender() {
     // JB will respond the first time 'ready' is called with 'initActivity'
@@ -31,7 +31,7 @@ define(["postmonger"], function (Postmonger) {
     // connection.trigger("requestEndpoints");
 
     // Disable the next button if a value isn't selected
-    $("#select1").change(function () {
+    /*$("#select1").change(function () {
       var message = getMessage();
       console.log("message : " + message);
       connection.trigger("updateButton", {
@@ -40,16 +40,16 @@ define(["postmonger"], function (Postmonger) {
       });
 
       $("#message").html(message);
-    });
+    }); */
 
     // Toggle step 4 active/inactive
     // If inactive, wizard hides it and skips over it during navigation
-    $("#toggleLastStep").click(function () {
+    /*$("#toggleLastStep").click(function () {
       lastStepEnabled = !lastStepEnabled; // toggle status
       steps[3].active = !steps[3].active; // toggle active
 
       connection.trigger("updateSteps", steps);
-    });
+    });*/
   }
 
   function initialize(data) {
@@ -57,7 +57,7 @@ define(["postmonger"], function (Postmonger) {
       payload = data;
     }
 
-    var message;
+    var campaignCode;
     var hasInArguments = Boolean(
       payload["arguments"] &&
         payload["arguments"].execute &&
@@ -71,8 +71,8 @@ define(["postmonger"], function (Postmonger) {
 
     $.each(inArguments, function (index, inArgument) {
       $.each(inArgument, function (key, val) {
-        if (key === "message") {
-          message = val;
+        if (key === "campaignCode") {
+          campaignCode = val;
         }
       });
     });
@@ -102,26 +102,26 @@ define(["postmonger"], function (Postmonger) {
   }
 
   function onClickedNext() {
-    if (
+    /*if (
       (currentStep.key === "step3" && steps[3].active === false) ||
       currentStep.key === "step4"
     ) {
       save();
     } else {
       connection.trigger("nextStep");
-    }
+    }*/
   }
 
   function onClickedBack() {
-    connection.trigger("prevStep");
+    // connection.trigger("prevStep");
   }
 
   function onGotoStep(step) {
-    showStep(step);
-    connection.trigger("ready");
+    // showStep(step);
+    // connection.trigger("ready");
   }
 
-  function showStep(step, stepIndex) {
+  /*function showStep(step, stepIndex) {
     if (stepIndex && !step) {
       step = steps[stepIndex - 1];
     }
@@ -178,19 +178,20 @@ define(["postmonger"], function (Postmonger) {
         $("#step4").show();
         break;
     }
-  }
+  }*/
 
   function save() {
-    var name = $("#select1").find("option:selected").html();
-    var value = getMessage();
+    var phoneNumber = $("#phoneNumber").val();
+    var campaignCode = $("#campaignCode").val();
 
     // 'payload' is initialized on 'initActivity' above.
     // Journey Builder sends an initial payload with defaults
     // set by this activity's config.json file.  Any property
     // may be overridden as desired.
-    payload.name = name;
+    // payload.phoneNumber = phoneNumber;
+    // payload.campaignCode = campaignCode;
 
-    payload["arguments"].execute.inArguments = [{ message: value }];
+    payload["arguments"].execute.inArguments = [{ campaignCode: campaignCode }];
 
     payload["metaData"].isConfigured = true;
 

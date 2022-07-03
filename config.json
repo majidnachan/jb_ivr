@@ -15,7 +15,7 @@
     "execute": {
       "inArguments": [
         {
-          "emailAddress": "{{InteractionDefaults.Email}}"
+          "campaignCode": "{{InteractionDefaults.Email}}"
         },
         {
           "phoneNumber": "{{Contact.Default.PhoneNumber}}"
@@ -23,7 +23,7 @@
       ],
       "outArguments": [
         {
-          "foundSignupDate": ""
+          "status": ""
         }
       ],
       "url": "http://majidnachan.herokuapp.com/execute"
@@ -44,10 +44,7 @@
     }
   },
   "wizardSteps": [
-    { "label": "Step 1", "key": "step1" },
-    { "label": "Step 2", "key": "step2" },
-    { "label": "Step 3", "key": "step3" },
-    { "label": "Step 4", "key": "step4", "active": false }
+    { "label": "IVR Configuration", "key": "step1" }
   ],
   "userInterfaces": {
     "configModal": {
@@ -68,8 +65,8 @@
             }
           },
           {
-            "emailAddress": {
-              "dataType": "Email",
+            "campaignCode": {
+              "dataType": "Text",
               "isNullable": false,
               "direction": "in"
             }
@@ -77,8 +74,8 @@
         ],
         "outArguments": [
           {
-            "foundSignupDate": {
-              "dataType": "Date",
+            "status": {
+              "dataType": "Text",
               "direction": "out",
               "access": "visible"
             }
