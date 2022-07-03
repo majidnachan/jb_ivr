@@ -78,17 +78,17 @@ define(["postmonger"], function (Postmonger) {
     });
 
     // If there is no message selected, disable the next button
-    if (!message) {
-      showStep(null, 1);
-      connection.trigger("updateButton", { button: "next", enabled: false });
+    if (!campaignCode) {
+      // showStep(null, 1);
+      connection.trigger("updateButton", { button: "done", enabled: false });
       // If there is a message, skip to the summary step
-    } else {
+    } /*else {
       $("#select1")
         .find("option[value=" + message + "]")
         .attr("selected", "selected");
       $("#message").html(message);
       showStep(null, 3);
-    }
+    }*/
   }
 
   function onGetTokens(tokens) {
