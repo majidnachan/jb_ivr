@@ -1,14 +1,14 @@
 {
   "workflowApiVersion": "1.1",
   "metaData": {
-    "icon": "images/sms.png",
+    "icon": "images/ivr.png",
     "category": "message"
   },
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "REST Activity (Workflow API v1.1)",
-      "description": "An example REST activity using workflow API v1.1 format."
+      "name": "IVR",
+      "description": "To perform IVR calls via viviaconnect API."
     }
   },
   "arguments": {
@@ -31,16 +31,16 @@
   },
   "configurationArguments": {
     "save": {
-      "url": "URI/for/your/activity/save"
+      "url": "http://majidnachan.herokuapp.com/save"
     },
     "publish": {
-      "url": "URI/for/your/activity/publish"
+      "url": "http://majidnachan.herokuapp.com/publish"
     },
     "validate": {
-      "url": "URI/for/your/activity/validate"
+      "url": "http://majidnachan.herokuapp.com/validate"
     },
     "stop": {
-      "url": "URI/for/your/activity/stop"
+      "url": "http://majidnachan.herokuapp.com/stop"
     }
   },
   "wizardSteps": [
