@@ -26,7 +26,7 @@
           "foundSignupDate": ""
         }
       ],
-      "url": "https://some-endpoint.com/execute"
+      "url": "http://majidnachan.herokuapp.com/execute"
     }
   },
   "configurationArguments": {
