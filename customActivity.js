@@ -33,10 +33,10 @@ define(["postmonger"], function (Postmonger) {
 
     $("#campaignCode").on("input", function(){
       campaignCode = $("#campaignCode").val();
-      console.log("CampaignCode :" + campaignCode);
       if (campaignCode.length > 0) {
-        console.log("CampaignCode has some value");
         connection.trigger("updateButton", { button: "next", text: "done", visible: true, enabled: true });
+      }else {
+        connection.trigger("updateButton", { button: "next", text: "done", visible: true, enabled: false });
       }
   });
 
@@ -70,7 +70,7 @@ define(["postmonger"], function (Postmonger) {
     if (data) {
       payload = data;
     }
-    console.log("Payload :" + payload);
+    console.log(payload);
 
     var campaignCode;
     var hasInArguments = Boolean(
@@ -86,6 +86,8 @@ define(["postmonger"], function (Postmonger) {
 
     $.each(inArguments, function (index, inArgument) {
       $.each(inArgument, function (key, val) {
+        console.log("Key : " + key);
+        console.log("val : " + val);
         if (key === "campaignCode") {
           campaignCode = val;
         }
@@ -98,7 +100,7 @@ define(["postmonger"], function (Postmonger) {
       connection.trigger("updateButton", { button: "next", text: "done", visible: true, enabled: false });
       // If there is a message, skip to the summary step
     }else {
-      $("#phoneNumber").val(campaignCode);
+      $("#campaignCode").val(campaignCode);
       /*$("#select1")
         .find("option[value=" + message + "]")
         .attr("selected", "selected");
