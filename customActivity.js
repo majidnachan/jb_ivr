@@ -3,6 +3,7 @@ define(["postmonger"], function (Postmonger) {
 
   var connection = new Postmonger.Session();
   var payload = {};
+  var campaignCode = '';
   // var lastStepEnabled = false;
   /*var steps = [
     // initialize to the same value as what's set in config.json for consistency
@@ -29,6 +30,15 @@ define(["postmonger"], function (Postmonger) {
     // JB will respond the first time 'ready' is called with 'initActivity'
     connection.trigger("ready");
     console.log("Ready called");
+
+    $("#campaignCode").on("input", function(){
+      campaignCode = $("#campaignCode").val();
+      console.log("CampaignCode :" + campaignCode);
+      if (campaignCode.length > 0) {
+        console.log("CampaignCode has some value");
+        connection.trigger("updateButton", { button: "next", text: "done", visible: true, enabled: true });
+      }
+  });
 
     // connection.trigger("requestTokens");
     // connection.trigger("requestEndpoints");
@@ -191,7 +201,7 @@ define(["postmonger"], function (Postmonger) {
   function save() {
     console.log("Saved called");
     // var phoneNumber = $("#phoneNumber").val();
-    var campaignCode = $("#campaignCode").val();
+    campaignCode = $("#campaignCode").val();
 
     // 'payload' is initialized on 'initActivity' above.
     // Journey Builder sends an initial payload with defaults
