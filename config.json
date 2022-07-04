@@ -15,17 +15,10 @@
     "execute": {
       "inArguments": [
         {
-          "campaignCode": "{{InteractionDefaults.Email}}"
-        },
-        {
           "phoneNumber": "{{Contact.Default.PhoneNumber}}"
         }
       ],
-      "outArguments": [
-        {
-          "status": ""
-        }
-      ],
+      "outArguments": [],
       "url": "http://majidnachan.herokuapp.com/execute"
     }
   },
@@ -50,37 +43,14 @@
     "configModal": {
       "height": 200,
       "width": 300,
-      "fullscreen": true
+      "fullscreen": false
     }
   },
   "schema": {
     "arguments": {
       "execute": {
-        "inArguments": [
-          {
-            "phoneNumber": {
-              "dataType": "Phone",
-              "isNullable": false,
-              "direction": "in"
-            }
-          },
-          {
-            "campaignCode": {
-              "dataType": "Text",
-              "isNullable": false,
-              "direction": "in"
-            }
-          }
-        ],
-        "outArguments": [
-          {
-            "status": {
-              "dataType": "Text",
-              "direction": "out",
-              "access": "visible"
-            }
-          }
-        ]
+        "inArguments": [],
+        "outArguments": []
       }
     }
   }

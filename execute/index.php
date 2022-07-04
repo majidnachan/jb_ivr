@@ -1,5 +1,5 @@
 <?php
-echo '{"status": "okSuccess"}';
+echo "{status: okSuccess}";
 $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
 $txt = "John Doe1\n";
 fwrite($myfile, $txt);

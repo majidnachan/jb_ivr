@@ -13,7 +13,6 @@ define(["postmonger"], function (Postmonger) {
   ];
   var currentStep = steps[0].key;
   */
-  $(window).ready(onRender);
 
   connection.on("initActivity", initialize);
   connection.on("requestedTokens", onGetTokens);
@@ -23,9 +22,13 @@ define(["postmonger"], function (Postmonger) {
   // connection.on("clickedBack", onClickedBack);
   // connection.on("gotoStep", onGotoStep);
 
+  // Trigger ready when window is completely ready
+  $(window).ready(onRender);
+
   function onRender() {
     // JB will respond the first time 'ready' is called with 'initActivity'
     connection.trigger("ready");
+    console.log("Ready called");
 
     // connection.trigger("requestTokens");
     // connection.trigger("requestEndpoints");
@@ -53,9 +56,11 @@ define(["postmonger"], function (Postmonger) {
   }
 
   function initialize(data) {
+    console.log("initialize called");
     if (data) {
       payload = data;
     }
+    console.log("Payload :" + payload);
 
     var campaignCode;
     var hasInArguments = Boolean(
@@ -80,15 +85,16 @@ define(["postmonger"], function (Postmonger) {
     // If there is no message selected, disable the next button
     if (!campaignCode) {
       // showStep(null, 1);
-      connection.trigger("updateButton", { button: "done", enabled: false });
+      connection.trigger("updateButton", { button: "next", text: "done", visible: true, enabled: false });
       // If there is a message, skip to the summary step
-    } /*else {
-      $("#select1")
+    }else {
+      $("#phoneNumber").val(campaignCode);
+      /*$("#select1")
         .find("option[value=" + message + "]")
         .attr("selected", "selected");
       $("#message").html(message);
-      showStep(null, 3);
-    }*/
+      showStep(null, 3);*/
+    }
   }
 
   function onGetTokens(tokens) {
@@ -102,6 +108,8 @@ define(["postmonger"], function (Postmonger) {
   }
 
   function onClickedNext() {
+    console.log("Next clicked");
+    save();
     /*if (
       (currentStep.key === "step3" && steps[3].active === false) ||
       currentStep.key === "step4"
@@ -181,7 +189,8 @@ define(["postmonger"], function (Postmonger) {
   }*/
 
   function save() {
-    var phoneNumber = $("#phoneNumber").val();
+    console.log("Saved called");
+    // var phoneNumber = $("#phoneNumber").val();
     var campaignCode = $("#campaignCode").val();
 
     // 'payload' is initialized on 'initActivity' above.
@@ -198,7 +207,7 @@ define(["postmonger"], function (Postmonger) {
     connection.trigger("updateActivity", payload);
   }
 
-  function getMessage() {
+  /*function getMessage() {
     return $("#select1").find("option:selected").attr("value").trim();
-  }
+  }*/
 });
