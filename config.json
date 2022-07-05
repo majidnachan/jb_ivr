@@ -15,7 +15,7 @@
     "execute": {
       "inArguments": [
         {
-          "phoneNumber": "{{Contact.Default.PhoneNumber}}"
+          "phoneNumber": "{{Contact.Attribute.Sms_test_2.Mobile}}"
         }
       ],
       "outArguments": [],
@@ -41,9 +41,9 @@
   ],
   "userInterfaces": {
     "configModal": {
-      "height": 200,
-      "width": 300,
-      "fullscreen": true
+      "height": 500,
+      "width": 600,
+      "fullscreen": false
     }
   },
   "schema": {
