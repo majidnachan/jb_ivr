@@ -20,7 +20,8 @@
         }
       ],
       "outArguments": [],
-      "url": "https://ivrdev.gourl.in/ivr/execute/"
+      "verb": "POST",
+      "url": "https://ivrdev.gourl.in/ivr/execute"
     }
   },
   "configurationArguments": {
@@ -31,7 +32,7 @@
       "url": ""
     },
     "validate": {
-      "url": "https://ivrdev.gourl.in/ivr/validate/"
+      "url": "https://ivrdev.gourl.in/ivr/validate"
     },
     "stop": {
       "url": ""
