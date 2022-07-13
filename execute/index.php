@@ -1,6 +1,6 @@
 <?php
 $myfile = fopen("./files/execute.txt", "w") or die("Unable to open file!");
-$txt = file_get_contents('php://input');
+$txt = json_encode($_POST);
 fwrite($myfile, $txt);
 fclose($myfile);
 echo '{"success": true}'
