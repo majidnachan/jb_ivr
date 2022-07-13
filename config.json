@@ -24,16 +24,16 @@
   },
   "configurationArguments": {
     "save": {
-      "url": "https://ivrdev.gourl.in/ivr/save"
+      "url": ""
     },
     "publish": {
-      "url": "https://ivrdev.gourl.in/ivr/publish"
+      "url": ""
     },
     "validate": {
-      "url": "https://ivrdev.gourl.in/ivr/validate"
+      "url": ""
     },
     "stop": {
-      "url": "https://ivrdev.gourl.in/ivr/stop"
+      "url": ""
     }
   },
   "wizardSteps": [
