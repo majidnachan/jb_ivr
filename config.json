@@ -19,21 +19,21 @@
         }
       ],
       "outArguments": [],
-      "url": "http://majidnachan.herokuapp.com/execute"
+      "url": "https://ivrdev.gourl.in/ivr/execute"
     }
   },
   "configurationArguments": {
     "save": {
-      "url": "http://majidnachan.herokuapp.com/save"
+      "url": "https://ivrdev.gourl.in/ivr/save"
     },
     "publish": {
-      "url": "http://majidnachan.herokuapp.com/publish"
+      "url": "https://ivrdev.gourl.in/ivr/publish"
     },
     "validate": {
-      "url": "http://majidnachan.herokuapp.com/validate"
+      "url": "https://ivrdev.gourl.in/ivr/validate"
     },
     "stop": {
-      "url": "http://majidnachan.herokuapp.com/stop"
+      "url": "https://ivrdev.gourl.in/ivr/stop"
     }
   },
   "wizardSteps": [
