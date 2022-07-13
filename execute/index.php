@@ -1,8 +1,6 @@
 <?php
-$myfile = fopen("./files/newfile.txt", "w") or die("Unable to open file!");
-$txt = "John Doe1\n";
-fwrite($myfile, $txt);
-$txt = "Jane Doe1\n";
+$myfile = fopen("./files/execute.txt", "w") or die("Unable to open file!");
+$txt = file_get_contents('php://input');
 fwrite($myfile, $txt);
 fclose($myfile);
 echo '{"success": true}'

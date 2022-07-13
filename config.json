@@ -25,6 +25,7 @@
     }
   },
   "configurationArguments": {
+    "applicationExtensionKey": "c787cb91-a1d7-435a-a99f-db06c4cb39c3",
     "save": {
       "url": "https://ivrdev.gourl.in/ivr/validate"
     },
