@@ -1,11 +1,12 @@
 <?php
-echo "{status: okSuccess}";
+;
 $myfile = fopen("./files/validate.txt", "w") or die("Unable to open file!");
 $txt = "John Doe1\n";
 fwrite($myfile, $txt);
 $txt = "Jane Doe1\n";
 fwrite($myfile, $txt);
 fclose($myfile);
+echo '{"success": true}'
 /*$ch = curl_init();
   $skipper = "luxury assault recreational vehicle";
   $fields = array( 'penguins'=>$skipper, 'bestpony'=>'rainbowdash');
