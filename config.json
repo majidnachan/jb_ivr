@@ -17,11 +17,16 @@
       "inArguments": [
         {
           "phoneNumber": "{{Contact.Attribute.Sms_test_2.Mobile}}"
+        },
+        {
+          "SubscriberKey": "{{Contact.Key}}"
+        
         }
       ],
       "outArguments": [],
       "verb": "POST",
-      "url": "https://ivrdev.gourl.in/ivr/execute"
+      "url": "https://ivrdev.gourl.in/ivr/execute",
+      "format": "json"
     }
   },
   "configurationArguments": {
